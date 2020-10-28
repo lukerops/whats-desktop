@@ -1,0 +1,13 @@
+{
+    "src": "build/dist/WhatsDesktop-linux-x64",
+    "dest": "build/dist/installers/",
+    "icon": {
+        "16x16": "build/dist/WhatsDesktop-linux-x64/resources/app/assets/img/icon-16x16.png",
+        "24x24": "build/dist/WhatsDesktop-linux-x64/resources/app/assets/img/icon-24x24.png",
+        "48x48": "build/dist/WhatsDesktop-linux-x64/resources/app/assets/img/icon-48x48.png",
+        "64x64": "build/dist/WhatsDesktop-linux-x64/resources/app/assets/img/icon-64x64.png",
+        "128x128": "build/dist/WhatsDesktop-linux-x64/resources/app/assets/img/icon-128x128.png",
+        "256x256": "build/dist/WhatsDesktop-linux-x64/resources/app/assets/img/icon-256x256.png",
+        "scalable": "build/dist/WhatsDesktop-linux-x64/resources/app/assets/img/icon.svg"
+    }
+}
