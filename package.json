@@ -1,33 +1,48 @@
 {
   "name": "whats-desktop",
   "productName": "WhatsDesktop",
-  "version": "1.0.0",
-  "description": "Unofficial WhatsApp Desktop Client. Build with Electron.",
-  "main": "build/main.js",
+  "version": "1.0.1",
+  "description": "Unofficial WhatsApp Desktop Client build with Electron.",
+  "license": "GPL-3.0",
+  "homepage": "https://github.com/lucasscvvieira/whats-desktop#readme",
+  "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-ts": "tsc && cp -rf src/assets build/src/ && cp -f app.package.json build/src/package.json",
-    "dev": "npm run build-ts && electron build/src/main.js",
-    "build-electron-amd64": "electron-packager ./build/src/ WhatsDesktop --platform=linux --arch=x64 --out=./build/dist --executable-name=whats-desktop",
-    "build-tar-amd64": "",
-    "build-deb-amd64": "electron-installer-debian --arch=amd64 --config deb.config.json",
-    "build-rpm-amd64": "",
-    "build-amd64": "npm run build-ts && npm run build-electron-amd64 && npm run build-tar-amd64 && npm run build-deb-amd64 && npm run build-rpm-amd64"
+    "prebuild-ts": "tsc",
+    "build-ts": "cp -f package.json build/src/package.json",
+    "predev": "npm run build-ts",
+    "dev": "electron build/src/main.js",
+    "prebuild-electron": "npm run build-ts",
+    "build-electron": "electron-packager build/src/ WhatsDesktop --asar --platform=linux --arch=x64 --out=build/dist --executable-name=whats-desktop",
+    "prebuild-debian": "npm run build-electron",
+    "build-debian": "electron-installer-debian --arch=amd64 --config deb.config.json",
+    "prebuild-appimage": "npm run build-electron",
+    "build-appimage": "./resources/AppImage/build.sh",
+    "build": "npm run build-debian && npm run build-appimage"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lucasscvvieira/whats-desktop.git"
   },
-  "author": "Lucas Campos Vieira",
-  "license": "GPL-3.0",
+  "author": {
+    "name": "Lucas Campos Vieira",
+    "email": "lucasscvvieira@gmail.com",
+    "url": "https://github.com/lucasscvvieira"
+  },
+  "maintainer": [
+    {
+      "name": "Lucas Campos Vieira",
+      "email": "lucasscvvieira@gmail.com",
+      "url": "https://github.com/lucasscvvieira"
+    }
+  ],
   "bugs": {
     "url": "https://github.com/lucasscvvieira/whats-desktop/issues"
   },
-  "homepage": "https://github.com/lucasscvvieira/whats-desktop#readme",
   "devDependencies": {
-    "electron": "^10.1.5",
+    "electron": "^12.0.7",
     "electron-installer-debian": "^3.1.0",
-    "electron-packager": "^15.1.0",
-    "typescript": "^4.0.5"
+    "electron-packager": "^15.2.0",
+    "typescript": "^4.2.4"
   }
 }

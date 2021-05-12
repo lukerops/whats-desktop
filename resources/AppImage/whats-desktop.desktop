@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=WhatsDesktop
+Comment=Unofficial WhatsApp Desktop Client build with Electron.
+GenericName=Internet Messenger
+Exec=AppRun %U
+Icon=whats-desktop
+Type=Application
+StartupNotify=true
+StartupWMClass=whatsdesktop
+Categories=Network;InstantMessaging;

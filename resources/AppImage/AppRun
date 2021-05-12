@@ -1,0 +1,9 @@
+#!/bin/sh
+
+HERE=$(dirname $(readlink -f "${0}"))
+BIN=usr/share/whats-desktop/whats-desktop
+
+export LD_LIBRARY_PATH=${HERE}/usr/share/whats-desktop/:$LD_LIBRARY_PATH
+
+
+${HERE}/${BIN} --no-sandbox $@
